@@ -11,4 +11,12 @@
 
     <artifactId>lesson-demo</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.devskiller</groupId>
+            <artifactId>jfairy</artifactId>
+            <version>0.6.5</version>
+        </dependency>
+    </dependencies>
+
 </project>
