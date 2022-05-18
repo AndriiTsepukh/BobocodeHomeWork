@@ -76,8 +76,6 @@ public class Accounts {
         BigDecimal balance = randomBigDecimal(MAX_BALANCE_VALUE);
         account.setBalance(balance);
         account.setCreationDate(LocalDate.now());
-        account.setAge(ThreadLocalRandom.current().nextInt(80));
-        account.setHappy(ThreadLocalRandom.current().nextBoolean());
     }
 
     private static BigDecimal randomBigDecimal(int max) {

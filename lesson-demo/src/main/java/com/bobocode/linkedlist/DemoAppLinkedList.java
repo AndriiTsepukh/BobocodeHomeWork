@@ -9,6 +9,9 @@ public class DemoAppLinkedList {
         printReversedRecursively(head);
         System.out.println("");
         printReversedUsingStack(head);
+
+        var reversed = reverseLinkedList(head);
+        print(reversed);
     }
 
     /**
@@ -60,6 +63,17 @@ public class DemoAppLinkedList {
         }
     }
 
+    public static <T> void print(Node<T> head) {
+        Objects.requireNonNull(head);
+        System.out.printf(head.element.toString());
+        if (head.next != null) printRecursively(head.next);
+    }
+
+    public static <T> void printRecursively(Node<T> node) {
+        System.out.printf(" -> " + node.element.toString());
+        if (node.next != null) printRecursively(node.next);
+    }
+
     /**
      * Prints a list in a reserved order using a {@link java.util.Stack} instance. Please note that it should not change
      * the list, just print its elements.
@@ -85,5 +99,34 @@ public class DemoAppLinkedList {
             System.out.printf(" -> ");
             System.out.printf(stack.pop().toString());
         }
+    }
+
+    /**
+     * Accepts a linked list head, reverses all elements and returns a new head (the last element).
+     * PLEASE NOTE that it should not create new nodes, only change the next references of the existing ones.
+     * E.g. you have a like "head:5 -> 7 -> 1 -> 4" should this method will return "head:4 -> 1 -> 7 -> 5"
+     *
+     * @param head the first element of the list
+     * @param <T>  element type
+     * @return new head
+     */
+    public static <T> Node<T> reverseLinkedList(Node<T> head) {
+        Stack<Node<T>> stack = new Stack<>();
+
+        while (head != null) {
+            stack.push(head);
+            head = head.next;
+        }
+
+        Node<T> newHead = stack.pop();
+        Node<T> node = newHead;
+        while (!stack.empty()) {
+            Node<T> temp = stack.pop();
+            node.next = temp;
+            node = temp;
+            temp.next = null;
+        }
+
+        return newHead;
     }
 }

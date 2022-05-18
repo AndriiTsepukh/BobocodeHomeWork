@@ -24,7 +24,7 @@ public class RandomFieldComparator<T> implements Comparator<T> {
     Class<T> targetType;
 
     public RandomFieldComparator(Class<T> targetType) {
-        this(targetType, false);
+        this(targetType, true);
     }
 
     /**
@@ -77,32 +77,6 @@ public class RandomFieldComparator<T> implements Comparator<T> {
         if (fieldObj1 == null) return 1;
         if (fieldObj1 == null) return -1;
 
-        if (fieldForComparing.getType().isPrimitive()) {
-            if (boolean.class.isAssignableFrom(fieldForComparing.getType())){
-                return ((Boolean) fieldObj1).compareTo((Boolean) fieldObj2);
-            }
-            if (byte.class.isAssignableFrom(fieldForComparing.getType())){
-                return ((Byte) fieldObj1).compareTo((Byte) fieldObj2);
-            }
-            if (short.class.isAssignableFrom(fieldForComparing.getType())){
-                return ((Short) fieldObj1).compareTo((Short) fieldObj2);
-            }
-            if (char.class.isAssignableFrom(fieldForComparing.getType())){
-                return ((Character) fieldObj1).compareTo((Character) fieldObj2);
-            }
-            if (int.class.isAssignableFrom(fieldForComparing.getType())){
-                return ((Integer) fieldObj1).compareTo((Integer) fieldObj2);
-            }
-            if (long.class.isAssignableFrom(fieldForComparing.getType())){
-                return ((Long) fieldObj1).compareTo((Long) fieldObj2);
-            }
-            if (float.class.isAssignableFrom(fieldForComparing.getType())){
-                return ((Float) fieldObj1).compareTo((Float) fieldObj2);
-            }
-            if (double.class.isAssignableFrom(fieldForComparing.getType())){
-                return ((Double) fieldObj1).compareTo((Double) fieldObj2);
-            }
-        }
         return ((Comparable) fieldObj1).compareTo(fieldObj2);
     }
 

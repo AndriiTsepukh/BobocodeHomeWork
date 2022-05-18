@@ -20,7 +20,5 @@ public class Account {
     private Sex sex;
     private LocalDate creationDate;
     private BigDecimal balance = BigDecimal.ZERO;
-    public int age;
-    public boolean happy;
 }
 

@@ -17,6 +17,8 @@
 
     <modules>
         <module>lesson-demo</module>
+        <module>2-0-data-structures-and-algorithms</module>
+        <module>java-fundamentals-util</module>
     </modules>
 
     <dependencies>
